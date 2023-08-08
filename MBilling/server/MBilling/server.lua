@@ -39,7 +39,6 @@ AddEventHandler('billing:pay', function(id)
         jobdata = string.lower(jobdata)
         TriggerEvent('esx_addonaccount:getSharedAccount', jobdata, function(account)
             if account ~= nil then
-                print ("La societé"  .. jobdata .. " à reçu " .. result[1].montant .. "€")
                 account.addMoney(result[1].montant)
             end
         end)

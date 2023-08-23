@@ -1,30 +1,32 @@
 # MBilling
 
-Un script qui permer a vos joueur de faire des facture !
+Ce script permet aux joueurs d'envoyer et de gérer des factures dans leur serveur FiveM utilisant le framework ESX.
 
-Framework : ESX
+## Fonctionnalités
 
+- Les joueurs peuvent envoyer des factures à d'autres joueurs en spécifiant une raison et un montant.
+- Les joueurs peuvent consulter la liste des factures qu'ils ont reçues.
+- Les joueurs peuvent consulter la liste des factures de leur job (uniquement pour les jobs ayant les permissions nécessaires).
+- Les joueurs peuvent payer les factures qu'ils ont reçues (uniquement si le montant a été payé).
 
-# SQL 
-```
-CREATE TABLE `MBilling` (
-  `id` int(255) NOT NULL,
-  `TargetIdentifier` varchar(255) NOT NULL,
-  `TargetName` varchar(255) NOT NULL,
-  `SenderIdentifier` varchar(255) NOT NULL,
-  `SenderName` varchar(255) NOT NULL,
-  `raison` varchar(255) NOT NULL,
-  `montant` int(255) NOT NULL,
-  `job` varchar(255) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT 0,
-  `date` varchar(255) NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+## Installation
 
-ALTER TABLE `MBilling`
-  ADD PRIMARY KEY (`id`);
+1. Téléchargez le script depuis le dépôt GitHub.
+2. Placez le dossier `mBilling` dans le dossier `resources` de votre serveur FiveM.
+3. Importez le fichier SQL `mbilling.sql` dans votre base de données.
+4. Ajoutez `start mBilling` dans votre fichier `server.cfg` pour démarrer le script.
 
-ALTER TABLE `MBilling`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-COMMIT;
+## Utilisation
 
-```
+- Pour ouvrir le menu de facturation, les joueurs peuvent utiliser la commande `/billing` ou appuyer sur une touche prédéfinie (à configurer dans le fichier `client.lua`).
+- Les joueurs peuvent envoyer des factures en spécifiant une raison et un montant.
+- Les joueurs peuvent consulter la liste des factures qu'ils ont reçues et les payer si nécessaire.
+- Les joueurs ayant les permissions nécessaires peuvent consulter et supprimer les factures de leur job.
+
+## Configuration
+
+Dans le fichier `client.lua`, vous pouvez modifier la touche pour ouvrir le menu de facturation.
+
+## Crédits
+
+Ce script a été créé par [vSync](https://github.com/vSyncDev).
